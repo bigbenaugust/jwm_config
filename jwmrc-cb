@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+
+<JWM>
+
+   <!-- The root menu, if this is undefined you will not get a menu. -->
+   <!-- Additional RootMenu attributes: onroot, labeled, label -->
+   <RootMenu height="15" onroot="123">
+      <!-- <Program icon="" label="xterm">xterm -fn terminus-12 -fg black -bg white -sb</Program> -->
+      <Program icon="" label="aterm">aterm -fn terminus-12 -fg black -bg white -sb</Program>
+      <Program icon="" label="terminator">terminator</Program>
+      <Program icon="" label="firefox">/usr/local/firefox/firefox</Program>
+      <Program icon="" label="file manager">thunar</Program>
+      <Program icon="" label="volume control">aterm -fn 6x9 -e alsamixer</Program>
+      <Separator/>
+
+<!--      <Menu icon="folder.png" label="Applications">
+         <Program icon="dia.png" label="Dia">dia</Program>
+         <Program icon="firefox.png" label="Firefox">firefox</Program>
+         <Program icon="pidgin.png" label="Pidgin">pidgin</Program>
+         <Program icon="gimp.png" label="Gimp">gimp</Program>
+         <Program icon="gtk-gnutella.png" label="gtk-gnutella">
+            gtk-gnutella
+         </Program>
+         <Program icon="gxine.png" label="gxine">gxine</Program>
+         <Program icon="ooffice.png" label="Open Office">ooffice</Program>
+      </Menu> -->
+      <Menu icon="folder.png" label="Utilities">
+         <Program icon="xcalc.png">xcalc</Program>
+         <Program icon="xfontsel.png">xfontsel</Program>
+         <Program icon="xmag.png">xmag</Program>
+         <Program icon="xprop.png" label="xprop">
+            xprop | xmessage -file -
+         </Program>
+      </Menu>
+      <Separator/>
+      <Restart label="Restart" icon="restart.png"/>
+      <Program icon="" label="Lock">xtrlock</Program>
+      <Exit label="Exit" confirm="true" icon="exit.png"/>
+   </RootMenu>
+
+   <Group>
+      <Class>Pidgin</Class>
+      <Option>sticky</Option>
+   </Group>
+
+   <Group>
+      <Name>gkrellm2</Name>
+      <Option>nolist</Option>
+   </Group>
+
+   <Group>
+      <Name>rxvt</Name>
+      <Option>vmax</Option>
+   </Group>
+
+   <!-- Additional tray attributes: autohide, width, border, layer, layout -->
+   <Tray  x="0" y="-1" height="20" width="1920">
+
+      <!-- Additional TrayButton attribute: label -->
+      <TrayButton label="JWM">root:1</TrayButton>
+
+      <!-- <TrayButton label="_">showdesktop</TrayButton> -->
+
+      <!-- Additional Pager attributes; width, height -->
+      <!-- <Pager/> -->
+
+      <!-- Additional TaskList attribute: maxwidth -->
+      <TaskList/>
+
+      <Dock/>
+
+      <!-- Additional Swallow attribute: height 
+      <Swallow name="xload" width="64">
+         xload -nolabel -bg white -fg black -hl blue -update 3
+      </Swallow>  -->
+
+      <Clock format="%a %b %d %R">xclock</Clock>
+
+   </Tray>
+
+   <!-- Visual Styles -->
+
+   <WindowStyle>
+
+      <Font>liberation.sans-8</Font>
+      <Width>3</Width>
+      <Height>16</Height>
+
+      <Active>
+         <Text>white</Text>
+         <Title>#4b4b4b:#3c3c3c</Title>
+         <Corner>#3c3c3c</Corner>
+         <Outline>#3c3c3c</Outline>
+      </Active>
+
+      <Inactive>
+         <Text>#9c9c9c</Text>
+         <Title>#4b4b4b:#3c3c3c</Title>
+         <Corner>#3c3c3c</Corner>
+         <Outline>#3c3c3c</Outline>
+      </Inactive>
+
+   </WindowStyle>
+
+   <TaskListStyle>
+      <Font>liberation.sans-8</Font>
+      <ActiveForeground>white</ActiveForeground>
+      <ActiveBackground>#4b4b4b:#3c3c3c</ActiveBackground>
+      <Foreground>#808080</Foreground>
+      <Background>#3c3c3c:#4b4b4b</Background>
+   </TaskListStyle>
+
+   <!-- Additional TrayStyle attribute: insert -->
+   <TrayStyle>
+      <Font>liberation.sans-8</Font>
+      <Foreground>white</Foreground>
+      <Background>#3c3c3c</Background>
+   </TrayStyle>
+
+   <PagerStyle>
+      <Outline>#4b4b4b</Outline>
+      <Foreground>#3c3c3c</Foreground>
+      <Background>black</Background>
+      <ActiveForeground>white</ActiveForeground>
+      <ActiveBackground>#3c3c3c</ActiveBackground>
+   </PagerStyle>
+
+   <MenuStyle>
+      <Font>liberation.sans-8</Font>
+      <Foreground>white</Foreground>
+      <Background>#3c3c3c</Background>
+      <ActiveForeground>white</ActiveForeground>
+      <ActiveBackground>#747474:#656565</ActiveBackground>
+   </MenuStyle>
+
+   <PopupStyle>
+      <Font>liberation.sans-8:weight=bold</Font>
+      <Outline>#3c3c3c</Outline>
+      <Foreground>white</Foreground>
+      <Background>#3c3c3c</Background>
+   </PopupStyle>
+
+   <IconPath>
+      $HOME/.icons
+   </IconPath>
+
+   <!-- Virtual Desktops -->
+   <!-- Desktop tags can be contained within Desktops for desktop names. -->
+   <Desktops count="1">
+
+      <!-- Default background. Note that a Background tag can be
+           contained within a Desktop tag to give a specific background
+           for that desktop.
+       -->
+      <Background type="solid">black</Background>
+
+   </Desktops>
+
+   <!-- Double click speed (in milliseconds) -->
+   <DoubleClickSpeed>400</DoubleClickSpeed>
+
+   <!-- Double click delta (in pixels) -->
+   <DoubleClickDelta>2</DoubleClickDelta>
+
+   <!-- The focus model (sloppy or click) -->
+   <FocusModel>click</FocusModel>
+
+   <!-- The snap mode (none, screen, or border) -->
+   <SnapMode distance="10">border</SnapMode>
+
+   <!-- The move mode (outline or opaque) -->
+   <MoveMode>opaque</MoveMode>
+
+   <!-- The resize mode (outline or opaque) -->
+   <ResizeMode>opaque</ResizeMode>
+
+   <!-- Key bindings -->
+   <Key key="Up">up</Key>
+   <Key key="Down">down</Key>
+   <Key key="Right">right</Key>
+   <Key key="Left">left</Key>
+   <Key key="h">left</Key>
+   <Key key="j">down</Key>
+   <Key key="k">up</Key>
+   <Key key="l">right</Key>
+   <Key key="Return">select</Key>
+   <Key key="Escape">escape</Key>
+
+   <Key mask="A" key="Tab">nextstacked</Key>
+   <Key mask="A" key="F4">close</Key>
+   <Key mask="A" key="#">desktop#</Key>
+   <Key mask="A" key="F1">root:1</Key>
+   <Key mask="A" key="F2">window</Key>
+
+   <Key mask="A" key="n">exec:aterm -fn terminus-12 -fg black -bg white -sb</Key>
+   <Key mask="A" key="v">exec:aterm -fn 6x9 -e alsamixer</Key>
+
+</JWM>
+

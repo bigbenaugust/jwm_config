@@ -1,0 +1,192 @@
+<?xml version="1.0"?>
+
+<JWM>
+
+   <!-- The root menu, if this is undefined you will not get a menu. -->
+   <!-- Additional RootMenu attributes: onroot, labeled, label -->
+   <RootMenu height="15" onroot="123">
+      <Program icon="" label="aterm">aterm -fn terminus-12 -fg black -bg white -sb</Program>
+      <Program icon="" label="firefox">firefox</Program>
+      <Program icon="" label="file manager">thunar</Program>
+      <Menu icon="folder.png" label="Applications">
+         <Program icon="firefox.png" label="Firefox">firefox</Program>
+         <Program icon="gimp.png" label="Gimp">gimp</Program>
+         <Program icon="ooffice.png" label="Libre Office">libreoffice</Program>
+      </Menu>
+      <Menu icon="folder.png" label="Utilities">
+         <Program icon="xcalc.png">xcalc</Program>
+         <Program icon="xfontsel.png">xfontsel</Program>
+         <Program icon="xmag.png">xmag</Program>
+         <Program icon="xprop.png" label="xprop">
+            xprop | xmessage -file -
+         </Program>
+      </Menu>
+      <Separator/>
+      <Restart label="Restart" icon="restart.png"/>
+      <Program label="Lock">sflock</Program>
+      <Exit label="Exit" confirm="true" icon="exit.png"/>
+   </RootMenu>
+
+   <Group>
+      <Class>Pidgin</Class>
+      <Option>sticky</Option>
+   </Group>
+
+   <Group>
+      <Name>gkrellm2</Name>
+      <Option>nolist</Option>
+   </Group>
+
+   <Group>
+      <Name>rxvt</Name>
+      <Option>vmax</Option>
+   </Group>
+
+   <!-- Additional tray attributes: autohide, width, border, layer, layout -->
+   <Tray  x="0" y="-1" height="20" autohide="true">
+
+      <!-- Additional TrayButton attribute: label -->
+      <TrayButton label="JWM">root:1</TrayButton>
+      <TrayButton label="T" popup="Terminal">exec:aterm -fn terminus -sb</TrayButton>
+      <TrayButton label="FF" popup="Firefox">exec:firefox</TrayButton>
+      <TrayButton label="FM" popup="File Manager">exec:thunar</TrayButton>
+
+      <!-- <TrayButton label="_">showdesktop</TrayButton> -->
+
+      <!-- Additional Pager attributes; width, height -->
+      <Pager/>
+
+      <!-- Additional TaskList attribute: maxwidth -->
+      <TaskList/>
+
+      <Dock/>
+
+      <!-- Additional Swallow attribute: height -->
+      <!-- <Swallow name="xload" width="64">
+         xload -nolabel -bg black -fg red -hl white
+      </Swallow> -->
+
+      <Clock format="%a %b %d %R">xclock</Clock>
+
+   </Tray>
+
+   <!-- Visual Styles -->
+
+   <WindowStyle>
+
+      <Font>FreeSans-9:bold</Font>
+      <Width>3</Width>
+      <Height>18</Height>
+
+      <Active>
+         <Text>#383838</Text>
+         <Title>white:#b8b8b8</Title>
+         <Corner>#b8b8b8</Corner>
+         <Outline>#383838</Outline>
+      </Active>
+
+      <Inactive>
+         <Text>#9c9c9c</Text>
+         <Title>white:#b8b8b8</Title>
+         <Corner>#b8b8b8</Corner>
+         <Outline>#383838</Outline>
+      </Inactive>
+
+      
+   </WindowStyle>
+
+   <TaskListStyle>
+      <Font>FreeSans-9:bold</Font>
+      <ActiveForeground>#383838</ActiveForeground>
+      <ActiveBackground>white:#b8b8b8</ActiveBackground>
+      <Foreground>#383838</Foreground>
+      <Background>white:#b8b8b8</Background>
+   </TaskListStyle>
+
+   <!-- Additional TrayStyle attribute: insert -->
+   <TrayStyle>
+      <Font>FreeSans-9:bold</Font>
+      <Background>white</Background>
+      <Foreground>#383838</Foreground>
+   </TrayStyle>
+
+   <PagerStyle>
+      <Outline>#383838</Outline>
+      <Foreground>black</Foreground>
+      <Background>white</Background>
+      <ActiveForeground>white</ActiveForeground>
+      <ActiveBackground>#0000ff</ActiveBackground>
+   </PagerStyle>
+
+   <MenuStyle>
+      <Font>FreeSans-9:bold</Font>
+      <Foreground>black</Foreground>
+      <Background>white</Background>
+      <ActiveForeground>white</ActiveForeground>
+      <ActiveBackground>#5f5fff:#0000ff</ActiveBackground>
+   </MenuStyle>
+
+   <PopupStyle>
+      <Font>FreeSans-9</Font>
+      <Outline>#383838</Outline>
+      <Foreground>black</Foreground>
+      <Background>white</Background>
+
+   </PopupStyle>
+
+   <IconPath>
+      $HOME/.icons
+   </IconPath>
+
+   <!-- Virtual Desktops -->
+   <!-- Desktop tags can be contained within Desktops for desktop names. -->
+   <Desktops count="2">
+
+      <!-- Default background. Note that a Background tag can be
+           contained within a Desktop tag to give a specific background
+           for that desktop.
+       -->
+      <Background type="solid">steelblue4</Background>
+
+   </Desktops>
+
+   <!-- Double click speed (in milliseconds) -->
+   <DoubleClickSpeed>400</DoubleClickSpeed>
+
+   <!-- Double click delta (in pixels) -->
+   <DoubleClickDelta>2</DoubleClickDelta>
+
+   <!-- The focus model (sloppy or click) -->
+   <FocusModel>click</FocusModel>
+
+   <!-- The snap mode (none, screen, or border) -->
+   <SnapMode distance="10">border</SnapMode>
+
+   <!-- The move mode (outline or opaque) -->
+   <MoveMode>opaque</MoveMode>
+
+   <!-- The resize mode (outline or opaque) -->
+   <ResizeMode>opaque</ResizeMode>
+
+   <!-- Key bindings -->
+   <Key key="Up">up</Key>
+   <Key key="Down">down</Key>
+   <Key key="Right">right</Key>
+   <Key key="Left">left</Key>
+   <Key key="h">left</Key>
+   <Key key="j">down</Key>
+   <Key key="k">up</Key>
+   <Key key="l">right</Key>
+   <Key key="Return">select</Key>
+   <Key key="Escape">escape</Key>
+
+   <Key mask="A" key="Tab">nextstacked</Key>
+   <Key mask="A" key="F4">close</Key>
+   <Key mask="A" key="#">desktop#</Key>
+   <Key mask="A" key="F1">root:1</Key>
+   <Key mask="A" key="F2">window</Key>
+
+ <StartupCommand>volumeicon</StartupCommand>
+
+</JWM>
+

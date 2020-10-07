@@ -1,0 +1,188 @@
+<?xml version="1.0"?>
+<!-- This file controls the behavior of JWM. Modified for Vector Linux -->
+<!-- Edit with care. -->
+
+<JWM>
+
+    <!-- The root menu, if this is undefined you will not get a menu. -->
+   <!-- Additional RootMenu attributes: onroot, labeled, label -->
+   <RootMenu height="16">
+      <!-- Addititional Menu attributes: height, labeled -->
+      <Program icon="" label="xterm">xterm -fn fixed -fg black -bg white -sb</Program>
+      <Program icon="" label="aterm">aterm -fn fixed -fg black -bg white -sb</Program>
+      <Program icon="" label="firefox">/usr/local/firefox4/firefox</Program>
+      <Program icon="" label="file manager">pcmanfm</Program>
+      <Program icon="" label="volume control">aterm -fn 6x9 -e alsamixer</Program>
+      <Program icon="" label="lock">xlock -mode maze</Program>
+      <Separator/>
+      <Menu label="Default Menu">
+      <Program label=" Terminal" icon="/usr/share/icons/menu-Terminal.png">xterm</Program>
+      <Program label=" Run.. " icon="/usr/share/icons/menu-Run.png">fbrun</Program>
+      <Separator/>
+	<Include>$HOME/.jwm/menu</Include>
+      </Menu>
+      <Separator/>
+      <Menu label=" Quit" icon="/usr/share/icons/menu-Quit.png">
+          <Restart label=" Restart JWM" icon="/usr/share/icons/menu-Restart.png"/>
+          <Exit label=" Log Out" confirm="false" icon="/usr/share/icons/menu-Close.png"/>
+          <Program label=" Reboot" icon="/usr/share/icons/menu-Reload.png">sudo /sbin/shutdown -t3 -r now</Program>
+          <Program label=" Shutdown" icon="/usr/share/icons/menu-Exit.png" >sudo /sbin/shutdown -t3 -h now </Program>
+      </Menu>
+   </RootMenu>
+   <Group>
+      <Class>Pidgin</Class>
+      <Option>sticky</Option>
+   </Group>
+
+   <Group>
+      <Name>gkrellm2</Name>
+      <Option>nolist</Option>
+   </Group>
+
+   <Group>
+      <Name>rxvt</Name>
+      <Option>vmax</Option>
+   </Group>
+
+   <!-- Additional tray attributes: autohide, width, border, layer, layout -->
+   <Tray  x="0" y="-1" height="20">
+
+    <!-- Additional TrayButton attribute: label -->
+        <TrayButton label="Menu" icon="/usr/share/icons/menu-Vector.png">root:1</TrayButton>
+
+	<!-- <TrayButton label="" icon="/usr/share/icons/desktop.png">showdesktop</TrayButton> -->
+
+
+      <!-- Additional Pager attributes; width, height -->
+      <!-- <Pager/> -->
+
+      <!-- Additional TaskList attribute: maxwidth -->
+      <TaskList/>
+
+      <Dock/>
+
+      <Clock format="%a %b %d %R">xclock</Clock>
+
+   </Tray>
+
+   <!-- Visual Styles -->
+
+   <WindowStyle>
+
+      <Font>FreeSans-8:bold</Font>
+      <Width>4</Width>
+      <Height>16</Height>
+
+      <Active>
+       <Text>black</Text>
+       <Title>white:#b8b8b8</Title>
+       <Corner>#b8b8b8</Corner>
+       <Outline>#383838</Outline>
+      </Active>
+
+      <Inactive>
+       <Text>#9c9c9c</Text>
+       <Title>white:#b8b8b8</Title>
+       <Corner>#b8b8b8</Corner>
+       <Outline>#383838</Outline>
+      </Inactive>
+
+   </WindowStyle>
+
+   <TaskListStyle>
+      <Font>FreeSans-8:bold</Font>
+      <ActiveForeground>black</ActiveForeground>
+      <ActiveBackground>white:#b8b8b8</ActiveBackground>
+      <Foreground>#808080</Foreground>
+      <Background>#b8b8b8:white</Background>
+   </TaskListStyle>
+
+   <!-- Additional TrayStyle attribute: insert -->
+   <TrayStyle>
+      <Font>FreeSans-8:bold</Font>
+      <Background>white</Background>
+      <Foreground>#383838</Foreground>
+   </TrayStyle>
+
+   <PagerStyle>
+    <Outline>#383838</Outline>
+    <Foreground>black</Foreground>
+    <Background>white</Background>
+    <ActiveForeground>white</ActiveForeground>
+    <ActiveBackground>#0000ff</ActiveBackground>
+   </PagerStyle>
+
+   <MenuStyle>
+      <Font>FreeSans-8:bold</Font>
+      <Foreground>black</Foreground>
+      <Background>white</Background>
+      <ActiveForeground>white</ActiveForeground>
+      <ActiveBackground>#5f5fff:#0000ff</ActiveBackground>
+   </MenuStyle>
+
+   <PopupStyle>
+      <Font>FreeSans-8:bold</Font>
+      <Outline>#383838</Outline>
+      <Foreground>black</Foreground>
+      <Background>white</Background>
+   </PopupStyle>
+
+   <IconPath>/usr/share/pixmaps</IconPath>
+
+   <StartupCommand>
+      if test x"$DBUS_SESSION_BUS_ADDRESS" = x""; then
+         dbuslaunch=`which dbus-launch`
+         if test x"$dbuslaunch" != x"" -a x"$dbuslaunch" != x"no"; then
+            eval `$dbuslaunch --sh-syntax --exit-with-session`
+         fi
+      fi
+      pcmanfm -d
+   </StartupCommand>
+
+   <!-- Virtual Desktops -->
+   <!-- Desktop tags can be contained within Desktops for desktop names. -->
+   <Desktops count="1">
+    <Background>steelblue4</Background>
+   </Desktops>
+
+   <!-- Double click speed (in milliseconds) -->
+   <DoubleClickSpeed>400</DoubleClickSpeed>
+
+   <!-- Double click delta (in pixels) -->
+   <DoubleClickDelta>2</DoubleClickDelta>
+
+   <!-- The focus model (sloppy or click) -->
+   <FocusModel>click</FocusModel>
+
+   <!-- The snap mode (none, screen, or border) -->
+   <SnapMode distance="10">border</SnapMode>
+
+   <!-- The move mode (outline or opaque) -->
+   <MoveMode>opaque</MoveMode>
+
+   <!-- The resize mode (outline or opaque) -->
+   <ResizeMode>opaque</ResizeMode>
+
+   <!-- Key bindings -->
+   <Key key="Up">up</Key>
+   <Key key="Down">down</Key>
+   <Key key="Right">right</Key>
+   <Key key="Left">left</Key>
+   <Key key="h">left</Key>
+   <Key key="j">down</Key>
+   <Key key="k">up</Key>
+   <Key key="l">right</Key>
+   <Key key="Return">select</Key>
+   <Key key="Escape">escape</Key>
+
+   <Key mask="A" key="Tab">nextstacked</Key>
+   <Key mask="A" key="F4">close</Key>
+   <Key mask="A" key="#">desktop#</Key>
+   <Key mask="A" key="F1">root:1</Key>
+   <Key mask="A" key="F2">window</Key>
+
+   <Key mask="A" key="n">exec:aterm -fn terminus-12 -fg black -bg white -sb</Key>
+   <Key mask="A" key="v">exec:aterm -fn 6x9 -e alsamixer</Key>
+
+
+</JWM>
